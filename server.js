@@ -10,6 +10,10 @@ const PORT = Number(process.env.PORT || 3000);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 let pool;
 
 function getPool() {
@@ -102,9 +106,17 @@ app.delete("/api/clientes/:id", async (req, res) => {
   }
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+(async () => {
+  try {
+    await ensureTable();
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Site disponível em http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("Falha ao iniciar:", error.message);
+    process.exit(1);
+  }
+})();
 
 (async () => {
   try {
