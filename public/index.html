@@ -3,76 +3,299 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro de Clientes</title>
-  <link rel="stylesheet" href="/style.css">
+
+  <title>Catálogo Tom Hanks</title>
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <main class="container">
-    <header class="hero">
-      <div>
-        <p class="eyebrow">ISW055 · Sistemas Inteligentes</p>
-        <h1>Cadastro de Clientes</h1>
-        <p class="subtitle">Projeto Integrador · Introdução à Computação em Nuvem</p>
+
+  <!-- =========================
+       TELA DE LOGIN/CADASTRO
+  ========================== -->
+
+  <section id="auth-screen" class="auth-screen">
+
+    <div class="auth-card">
+
+      <div class="logo">
+        🎬
       </div>
-      <div id="status" class="status">Verificando MySQL...</div>
+
+      <h1>Catálogo Tom Hanks</h1>
+
+      <p class="subtitle">
+        Filmes, favoritos e comentários
+      </p>
+
+      <!-- LOGIN -->
+
+      <div id="login-form">
+
+        <h2>Entrar</h2>
+
+        <form id="form-login">
+
+          <input
+            type="email"
+            id="login-email"
+            placeholder="Seu email"
+            required
+          >
+
+          <input
+            type="password"
+            id="login-senha"
+            placeholder="Sua senha"
+            required
+          >
+
+          <button type="submit">
+            Entrar
+          </button>
+
+        </form>
+
+        <p id="login-message" class="message"></p>
+
+        <p class="switch-form">
+          Ainda não tem uma conta?
+          <button id="show-register" class="link-button">
+            Criar conta
+          </button>
+        </p>
+
+      </div>
+
+      <!-- CADASTRO -->
+
+      <div id="register-form" class="hidden">
+
+        <h2>Criar conta</h2>
+
+        <form id="form-register">
+
+          <input
+            type="text"
+            id="register-nome"
+            placeholder="Seu nome"
+            required
+          >
+
+          <input
+            type="email"
+            id="register-email"
+            placeholder="Seu email"
+            required
+          >
+
+          <input
+            type="password"
+            id="register-senha"
+            placeholder="Crie uma senha"
+            minlength="6"
+            required
+          >
+
+          <button type="submit">
+            Criar conta
+          </button>
+
+        </form>
+
+        <p id="register-message" class="message"></p>
+
+        <p class="switch-form">
+          Já possui uma conta?
+          <button id="show-login" class="link-button">
+            Entrar
+          </button>
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       APLICAÇÃO
+  ========================== -->
+
+  <section id="app-screen" class="app-screen hidden">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <span>🎬</span>
+        <strong>Tom Hanks</strong>
+      </div>
+
+      <div class="user-area">
+
+        <span>
+          Olá, <strong id="user-name"></strong>
+        </span>
+
+        <button id="logout-button">
+          Sair
+        </button>
+
+      </div>
+
     </header>
 
-    <section class="card form-card">
-      <h2>Novo cadastro</h2>
-      <form id="clienteForm">
-        <label>
-          Nome
-          <input id="nome" name="nome" type="text" placeholder="Digite o nome" required>
-        </label>
 
-        <label>
-          Telefone
-          <input id="telefone" name="telefone" type="tel" placeholder="Digite o telefone" required>
-        </label>
+    <main>
 
-        <label>
-          Valor
-          <input id="valor" name="valor" type="number" min="0" step="0.01" placeholder="0,00" value="0">
-        </label>
+      <section class="hero">
 
-        <button type="submit">Cadastrar</button>
-        <p id="mensagem" class="mensagem"></p>
-      </form>
-    </section>
-
-    <section class="card">
-      <div class="table-header">
         <div>
-          <h2>Cadastros</h2>
-          <p id="total">Total de registros: 0</p>
-        </div>
-        <button id="atualizar" class="secondary">Atualizar</button>
-      </div>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Nome</th>
-              <th>Telefone</th>
-              <th>Valor</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody id="lista">
-            <tr><td colspan="5" class="empty">Carregando...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+          <span class="tag">
+            CATÁLOGO DE FILMES
+          </span>
+
+          <h1>
+            Filmes de Tom Hanks
+          </h1>
+
+          <p>
+            Explore os filmes, escolha seus favoritos
+            e deixe seus comentários.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- FILMES -->
+
+      <section class="content-section">
+
+        <div class="section-title">
+
+          <div>
+            <h2>Filmes</h2>
+
+            <p>
+              Informações atualizadas diretamente da TMDB.
+            </p>
+          </div>
+
+          <button id="reload-movies">
+            ↻ Atualizar
+          </button>
+
+        </div>
+
+        <div id="movies-container" class="movies-grid">
+
+          <div class="loading">
+            Carregando filmes...
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- FAVORITOS -->
+
+      <section class="content-section favorites-section">
+
+        <div class="section-title">
+
+          <div>
+
+            <h2>❤️ Meus favoritos</h2>
+
+            <p>
+              Apenas os filmes que você favoritou.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div id="favorites-container" class="favorites-grid">
+
+          <p class="empty">
+            Você ainda não possui favoritos.
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
 
     <footer>
-      <span>MySQL · Docker · Node.js</span>
-      <span>Ambiente de estudo</span>
-    </footer>
-  </main>
 
-  <script src="/app.js"></script>
+      <p>
+        Catálogo de filmes — Tom Hanks
+      </p>
+
+      <p>
+        Dados de filmes fornecidos pela TMDB.
+      </p>
+
+    </footer>
+
+  </section>
+
+
+  <!-- MODAL DE COMENTÁRIOS -->
+
+  <div id="comment-modal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <button
+        id="close-modal"
+        class="close-button"
+      >
+        ×
+      </button>
+
+      <h2 id="modal-title">
+        Comentários
+      </h2>
+
+      <div id="comments-container">
+
+        <p class="empty">
+          Carregando comentários...
+        </p>
+
+      </div>
+
+      <form id="comment-form">
+
+        <textarea
+          id="comment-text"
+          placeholder="Escreva seu comentário..."
+          maxlength="1000"
+          required
+        ></textarea>
+
+        <button type="submit">
+          Publicar comentário
+        </button>
+
+      </form>
+
+      <p id="comment-message" class="message"></p>
+
+    </div>
+
+  </div>
+
+
+  <script src="app.js"></script>
+
 </body>
 </html>
