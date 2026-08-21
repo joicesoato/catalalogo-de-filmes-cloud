@@ -1,6 +1,6 @@
 # Catálogo de Filmes: Tom Hanks
 
-Aplicação web desenvolvida para a disciplina **Introdução à Computação em Nuvem / Projeto Integrador de Big Data**, ministrada pelo professor **@siriani**.
+Aplicação web desenvolvida para a disciplina **Introdução à Computação em Nuvem**, ministrada pelo professor **@siriani**.
 
 O projeto utiliza a API do **TMDB** para consultar filmes de Tom Hanks e permite que usuários cadastrados façam login, favoritem filmes e adicionem comentários.
 
