@@ -168,13 +168,13 @@ A aplicação será executada na porta:
 Para criar a imagem:
 
 ```bash
-docker build -t cadastro-clientes:1.0 .
+docker build -t joicesoato/catalogo-filmes:1.0 .
 ```
 
 Para executar o container:
 
 ```bash
-docker run -p 3000:3000 --env-file .env cadastro-clientes:1.0
+docker run -p 3000:3000 --env-file .env joicesoato/catalogo-filmes:1.0
 ```
 
 ## Deploy
