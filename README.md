@@ -1,4 +1,4 @@
-# Catálogo de Filmes — Tom Hanks
+# Catálogo de Filmes: Tom Hanks
 
 Aplicação web desenvolvida para a disciplina **Introdução à Computação em Nuvem / Projeto Integrador de Big Data**, ministrada pelo professor **@siriani**.
 
@@ -213,8 +213,8 @@ cadastro-cliente-cloud/
 
 **Joice Soato**
 
-Projeto acadêmico — 2026.2
+Projeto acadêmico - 2026.2
 
-**Disciplina:** Introdução à Computação em Nuvem / Projeto Integrador de Big Data
+**Disciplina:** Introdução à Computação em Nuvem
 
 **Professor:** @siriani
